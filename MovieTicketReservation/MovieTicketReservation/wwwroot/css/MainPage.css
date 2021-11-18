@@ -1,0 +1,15 @@
+﻿.image-card {
+    height: 40% !important;
+    background-size: cover;
+    
+}
+.card {
+    margin-top: 20px;
+    float: left;
+    margin-right: 50px;
+    object-fit: cover;
+}
+.Background
+{
+    margin:30px 40px 0px 100px;
+}
