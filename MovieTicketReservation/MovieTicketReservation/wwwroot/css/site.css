@@ -14,7 +14,7 @@ ul {
 .searchBar{
     float:right;
     margin-top:14px;
-    margin-right:40px;
+    margin-right:20px;
     text-align:right;
 }
 
@@ -98,3 +98,71 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*Trigger Button*/
+.login-trigger {
+    margin-top:15px;
+    margin-right:20px;
+    font-weight: bold;
+    color: #fff;
+    background: #F87E7B;
+    padding: 6px 20px;
+    border-radius: 30px;
+}
+
+/*Modal*/
+h4 {
+    font-weight: bold;
+    color: #fff;
+}
+
+.close {
+    color: #fff;
+}
+
+.modal-content {
+    font-weight: bold;
+    background: rgba(0,0,0,0.6);
+}
+
+.form-control {
+    margin: 1em 0;
+}
+
+  
+
+    .username, .password, .form-control:hover, .form-control:focus {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: 2px solid #eee;
+        padding-left: 0;
+        font-weight: normal;
+        background: transparent;
+        color: white;
+    }
+
+.form-control::-webkit-input-placeholder {
+    color: #eee;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+    font-weight: bold;
+    color: #fff;
+}
+
+.login {
+    padding: 6px 20px;
+    border-radius: 20px;
+    background: none;
+    border: 2px solid #FAB87F;
+    color: #FAB87F;
+    font-weight: bold;
+    transition: all .5s;
+    margin-top: 1em;
+}
+
+    .login:hover {
+        background: #FAB87F;
+        color: #fff;
+    }

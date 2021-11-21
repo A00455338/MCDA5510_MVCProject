@@ -15,10 +15,33 @@
             <li><a href="#news">Movies</a></li>
             <li><a href="#contact">Theatre</a></li>
             <li><a href="#about">About</a></li>
-            <li style="float:right"><div class="searchBar"><input type="text" class="searchInput" placeholder="Search Here"/><button type="submit" class="searchButton">Search</button></div></li>
+            <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
+
+            <li style="float:right">
+                <div class="searchBar">
+                    <input type="text" class="searchInput" placeholder="Search Here" />
+                    <button type="submit" class="searchButton">Search</button>
+                </div>
+            </li>
         </ul>
         <hr />
-        </header>
+        <div id="login" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button data-dismiss="modal" class="close">&times;</button>
+                        <h4>Login</h4>
+                        <form>
+                            <input type="text" name="username" class="username form-control" placeholder="Username" />
+                            <input type="password" name="password" class="password form-control" placeholder="Password" />
+                            <input class="btn login" type="submit" value="Login" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     <div>
         <main role="main" class="pb-3">
             @RenderBody()
