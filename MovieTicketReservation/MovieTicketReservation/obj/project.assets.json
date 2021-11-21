@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\asp.net\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
+      "projectUniqueName": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
       "projectName": "MovieTicketReservation",
-      "projectPath": "D:\\asp.net\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
+      "projectPath": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
       "packagesPath": "C:\\Users\\navka\\.nuget\\packages\\",
-      "outputPath": "D:\\asp.net\\MovieTicketReservation\\MovieTicketReservation\\obj\\",
+      "outputPath": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\navka\\AppData\\Roaming\\NuGet\\NuGet.Config",

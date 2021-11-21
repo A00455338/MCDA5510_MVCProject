@@ -11,8 +11,8 @@
     <header>
         <ul class="navbar-list">
             <li><a class="logo">ShowBooking</a></li>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#news">Movies</a></li>
+            <li>@Html.ActionLink("Home", "", "Home")</li>
+            <li>@Html.ActionLink("Home", "", "Movies")</li>
             <li><a href="#contact">Theatre</a></li>
             <li><a href="#about">About</a></li>
             <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
@@ -25,22 +25,46 @@
             </li>
         </ul>
         <hr />
+
         <div id="login" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <div class="modal-content">
                     <div class="modal-body">
                         <button data-dismiss="modal" class="close">&times;</button>
-                        <h4>Login</h4>
+                        <h4 style="color:white">Login</h4>
                         <form>
-                            <input type="text" name="username" class="username form-control" placeholder="Username" />
-                            <input type="password" name="password" class="password form-control" placeholder="Password" />
+                            <input type="text" name="username" class="username form-control" placeholder="Username" required/>
+                            <input type="password" name="password" class="password form-control" placeholder="Password" required/>
+                            <label style="color:white">Don't have an account? <a id ="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="SignUp" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button data-dismiss="modal" class="close">&times;</button>
+                        <h4 style="color:white">Sign Up!</h4>
+                        <form>
+                            <input type="text" name="First Name" class="username form-control" placeholder="First Name" required/>
+                            <input type="text" name="Last Name" class="username form-control" placeholder="Last Name" required/>
+                            <input type="text" name="Email" class="username form-control" placeholder="Email" required/>
+                            <input type="password" name="password" class="password form-control" placeholder="Password" required/>
+                            <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
+                            <input class="btn login" type="submit" value="Submit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </header>
     <div>
         <main role="main" class="pb-3">
@@ -57,5 +81,14 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $('#signupButton').click(function () {
+            $('#login').modal("hide");
+        })
+        $('#LoginButton').click(function () {
+            $('#SignUp').modal("hide");
+        })
+    </script>
 </body>
 </html>
