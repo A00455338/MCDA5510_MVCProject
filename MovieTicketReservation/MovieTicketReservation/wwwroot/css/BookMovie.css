@@ -1,0 +1,18 @@
+﻿.time {
+    padding: 6px 20px;
+    border-radius: 20px;
+    background: none;
+    border: 2px solid #FAB87F;
+    color: #FAB87F;
+    font-weight: bold;
+    transition: all .5s;
+}
+.time:hover {
+    background: #FAB87F;
+    color: #fff;
+}
+.movieImage{
+    width:100%;
+    height:300px;
+    margin-bottom:30px;
+}

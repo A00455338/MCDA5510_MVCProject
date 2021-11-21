@@ -1,6 +1,6 @@
 ﻿
 @{
-
+    Layout= "Layout.cshtml";
 }
 <html>
 <head>
@@ -10,39 +10,40 @@
     <div class="Background">
         <h4>Now Trending !!</h4>
         <div class="card" style="width:12rem;">
-            <img src="~/movie-1.jpg" class="image-card" />
+            
+                <img src="~/movie-1.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
+        </div>
+        <div class="card" style="width: 12rem;">
+            <img src="~/movie-4.jpg" class="image-card" />
             <div class="card-body">
-                Title 1
+                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
             </div>
         </div>
         <div class="card" style="width: 12rem;">
             <img src="~/movie-4.jpg" class="image-card" />
             <div class="card-body">
-                Title 1
+                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
             </div>
         </div>
         <div class="card" style="width: 12rem;">
             <img src="~/movie-4.jpg" class="image-card" />
             <div class="card-body">
-                Title 1
-            </div>
-        </div>
-        <div class="card" style="width: 12rem;">
-            <img src="~/movie-4.jpg" class="image-card" />
-            <div class="card-body">
-                Title 1
+                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
             </div>
         </div>
         <div class="card" style="width: 12rem;">
             <img src="~/movie-1.jpg" class="image-card" />
             <div class="card-body">
-                Title 1
+                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
             </div>
         </div>
         <div class="card" style="width: 12rem;">
             <img src="~/movie-1.jpg" class="image-card" />
             <div class="card-body">
-                Title 1
+                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
             </div>
         </div>
         
