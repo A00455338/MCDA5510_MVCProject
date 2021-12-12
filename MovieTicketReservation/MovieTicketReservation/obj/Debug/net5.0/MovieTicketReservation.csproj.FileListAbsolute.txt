@@ -153,3 +153,5 @@ D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\bin
 D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\obj\Debug\net5.0\MovieTicketReservation.csproj.AssemblyReference.cache
 D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\obj\Debug\net5.0\Razor\Views\Home\BookMovie.cshtml.g.cs
+D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\obj\Debug\net5.0\Razor\Views\Home\Payment.cshtml.g.cs
+D:\asp.net\MCDA5510_MVCProject\MovieTicketReservation\MovieTicketReservation\obj\Debug\net5.0\Razor\Views\Home\Seats.cshtml.g.cs

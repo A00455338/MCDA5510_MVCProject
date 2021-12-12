@@ -38,5 +38,15 @@ namespace MovieTicketReservation.Controllers
         //    obj.Password = Request.Form["Password"];
             return View("MainPage",obj);
         }
+        [Route("selectSeats")]
+        public IActionResult selectSeats()
+        {
+            return View("Seats");
+        }
+        [Route("Pay")]
+        public IActionResult Pay()
+        {
+            return View("Payment");
+        }
     }
 }
