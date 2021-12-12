@@ -6232,26 +6232,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\navka\\.nuget\\packages\\": {}
+    "/Users/nishanthkarthikviswanathan/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
+      "projectUniqueName": "/Users/nishanthkarthikviswanathan/Documents/GitHub/MCDA5510_MVCProject/MovieTicketReservation/MovieTicketReservation/MovieTicketReservation.csproj",
       "projectName": "MovieTicketReservation",
-      "projectPath": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\MovieTicketReservation.csproj",
-      "packagesPath": "C:\\Users\\navka\\.nuget\\packages\\",
-      "outputPath": "D:\\asp.net\\MCDA5510_MVCProject\\MovieTicketReservation\\MovieTicketReservation\\obj\\",
+      "projectPath": "/Users/nishanthkarthikviswanathan/Documents/GitHub/MCDA5510_MVCProject/MovieTicketReservation/MovieTicketReservation/MovieTicketReservation.csproj",
+      "packagesPath": "/Users/nishanthkarthikviswanathan/.nuget/packages/",
+      "outputPath": "/Users/nishanthkarthikviswanathan/Documents/GitHub/MCDA5510_MVCProject/MovieTicketReservation/MovieTicketReservation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\navka\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/nishanthkarthikviswanathan/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6293,7 +6291,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
