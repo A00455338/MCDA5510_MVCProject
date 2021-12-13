@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieTicketReservation.Models
 {
-    public class Seats
+    public class SeatsModel
     {
-        public Seats()
+        public SeatsModel()
         {
         }
 

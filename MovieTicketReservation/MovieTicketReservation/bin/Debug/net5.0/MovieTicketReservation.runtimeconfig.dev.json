@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\navka\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\navka\\.nuget\\packages"
+      "/Users/nishanthkarthikviswanathan/.dotnet/store/|arch|/|tfm|",
+      "/Users/nishanthkarthikviswanathan/.nuget/packages"
     ]
   }
 }
