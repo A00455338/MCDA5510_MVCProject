@@ -38,7 +38,7 @@ namespace MovieTicketReservation.Controllers
                 if (isValidUser != null)
                 {
                     //FormsAuthentication.SetAuthCookie(obj.Email, false);
-                    Console.WriteLine(obj.Email);
+                    Console.WriteLine(obj.email);
                     return View("LoginUser",obj);
                 }
                 else
@@ -61,7 +61,7 @@ namespace MovieTicketReservation.Controllers
         {
            
                 //Retireving the user details from DB based on username and password enetered by user.
-                CustomerModel user = dbContext.Customer.Where(query => query.Email.Equals(model.Email) && query.Password.Equals(model.Password)).SingleOrDefault();
+                CustomerModel user = dbContext.Customer.Where(query => query.email.Equals(model.email) && query.password.Equals(model.password)).SingleOrDefault();
             //If user is present, then true is returned.
             if (user == null)
                 return null;
@@ -76,7 +76,7 @@ namespace MovieTicketReservation.Controllers
         {
             return View();
         }
-        public IActionResult SaveUserData([Bind("firstName,lastName,Email,Password")] CustomerModel obj)
+        public IActionResult SaveUserData([Bind("firstName,lastName,country,postalcode,phoneNumber,email,password,confirmPassword")] CustomerModel obj)
         {
             
             if (ModelState.IsValid)
