@@ -16,14 +16,14 @@
             <li><a href="#contact">Theatre</a></li>
             <li><a href="#about">About</a></li>
             @*@if (Model.firstName.ToString() == null)
-            {*@
-                <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
+                {*@
+            <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
 
             @*}
-            else
-            {
-                <li>Weclome @Model.firstName </li>
-            }*@    
+                else
+                {
+                    <li>Weclome @Model.firstName </li>
+                }*@
 
             <li style="float:right">
                 <div class="searchBar">
@@ -42,9 +42,9 @@
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Login</h4>
                         <form>
-                            <input type="text" name="username" class="username form-control" placeholder="Username" required/>
-                            <input type="password" name="password" class="password form-control" placeholder="Password" required/>
-                            <label style="color:white">Don't have an account? <a id ="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
+                            <input type="text" name="username" class="username form-control" placeholder="Username" required />
+                            <input type="password" name="password" class="password form-control" placeholder="Password" required />
+                            <label style="color:white">Don't have an account? <a id="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
                         </form>
                     </div>
@@ -60,10 +60,10 @@
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Sign Up!</h4>
                         <form action="Home/SaveUserData" method="post">
-                            <input type="text" name="firstName" class="username form-control" placeholder="First Name" value="" required/>
-                            <input type="text" name="lastName" class="username form-control" placeholder="Last Name" value="" required/>
-                            <input type="text" name="Email" class="username form-control" placeholder="Email" value=""/>
-                            <input type="password" name="Password" class="password form-control" placeholder="Password" value="" required/>
+                            <input type="text" name="firstName" class="username form-control" placeholder="First Name" value="" required />
+                            <input type="text" name="lastName" class="username form-control" placeholder="Last Name" value="" required />
+                            <input type="text" name="Email" class="username form-control" placeholder="Email" value="" />
+                            <input type="password" name="Password" class="password form-control" placeholder="Password" value="" required />
                             <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
                             <input class="btn login" type="submit" value="Submit" />
                         </form>
@@ -81,22 +81,23 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - MovieTicketReservation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
+            <div class="container">
+                &copy; 2021 - MovieTicketReservation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <script>
-        $('#signupButton').click(function () {
+    <script>$('#signupButton').click(function () {
             $('#login').modal("hide");
         })
         $('#LoginButton').click(function () {
             $('#SignUp').modal("hide");
-        })
-    </script>
+        })</script>
 </body>
 </html>
