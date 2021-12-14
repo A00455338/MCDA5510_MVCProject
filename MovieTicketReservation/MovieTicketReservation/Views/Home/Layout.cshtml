@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model MovieTicketReservation.Models.CustomerModel
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,6 +8,45 @@
     <title>@ViewData["Title"] - MovieTicketReservation</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+            $("#register").click(function () {
+                ValidationForm();
+                matchCardRegex();
+            })
+
+        });
+        function ValidationForm() {
+            if (!$("#registerForm").valid()) {
+                return false;
+            }
+        }
+        function matchCardRegex() {
+            var country = $("#country").val();
+            var input = $("#postalcode").val();
+            
+            var postal = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
+            var zip = /^\d{5}$|^\d{5}-\d{4}$/;
+            if (country == "canada") {
+                if (!postal.test(input)) {
+                    $("#postalcode-customerror").removeClass("d-none");
+                    $("#postalcode-customerror").text("Please enter a valid Postal Code");
+                } else {
+                    $("#postalcode-customerror").addClass("d-none");
+                    console.log("Postal Code is Perfect");
+                }
+            } else if (country == "usa") {
+                if (!zip.test(input)) {
+                    $("#postalcode-customerror").removeClass("d-none");
+                    $("#postalcode-customerror").text("Please enter a valid Zip Code");
+                } else {
+                    $("#postalcode-customerror").addClass("d-none");
+                    console.log("Zip Code is Perfect");
+                }
+            }
+
+        }</script>
 </head>
 <body>
     <header>
@@ -18,13 +59,13 @@
 
             @*if (@Model.firstName.ToString() == "")
             {*@
-                <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
+            <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
 
             @*}*@
             @*else
             {
                 <li>Weclome @Model.firstName </li>
-            }*@   
+            }*@
 
             <li style="float:right">
                 <div class="searchBar">
@@ -42,10 +83,15 @@
                     <div class="modal-body">
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Login</h4>
-                        <form action="Home/LoginUser" method="post">
-                            <input type="email" name="email" class="email form-control" placeholder="Email" required/>
-                            <input type="password" name="password" class="password form-control" placeholder="Password" required/>
-                            <label style="color:white">Don't have an account? <a id ="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
+
+                        <form action="Home/LoginUser" method="post" id="loginForm">
+                            @Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
+                            @Html.ValidationMessageFor(expression: model => model.email, null, htmlAttributes: new { @class = "text-danger" })
+
+                            @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
+                            @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })
+
+                            <label style="color:white">Don't have an account? <a id="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
                         </form>
                     </div>
@@ -53,27 +99,69 @@
             </div>
         </div>
 
-        <div id="SignUp" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
+        <div id="SignUp" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-body">
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Sign Up!</h4>
-                        <form action="Home/SaveUserData" method="post">
-                            <input type="text" name="firstName" class="username form-control" placeholder="First Name" value="" required/>
-                            <input type="text" name="lastName" class="username form-control" placeholder="Last Name" value="" required/>
-                            <input type="text" name="Email" class="username form-control" placeholder="Email" value=""/>
-                            <input type="password" name="Password" class="password form-control" placeholder="Password" value="" required/>
+                        <form action="Home/SaveUserData" method="post" id="registerForm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.TextBoxFor(expression: model => model.firstName, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "First Name" })
+                                        @Html.ValidationMessageFor(expression: model => model.firstName, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.TextBoxFor(expression: model => model.lastName, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Last Name" })
+                                        @Html.ValidationMessageFor(expression: model => model.lastName, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.DropDownList("country", new List<SelectListItem>
+                                        {
+                                           new SelectListItem{ Text="Select Country", Value = ""},
+                                           new SelectListItem{ Text="Canada", Value = "canada" },
+                                           new SelectListItem{ Text="USA", Value = "usa" }
+                                        })
+                                        <br />
+                                        @Html.ValidationMessageFor(expression: model => model.country, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.TextBoxFor(expression: model => model.postalcode, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Postal/Zip Code" })
+                                        @Html.ValidationMessageFor(expression: model => model.postalcode, null, htmlAttributes: new { @class = "text-danger" })
+                                        <span class="text-danger field-validation-error"><span id="postalcode-customerror" class="d-none"></span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
+                                        @Html.ValidationMessageFor(expression: model => model.email, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.TextBoxFor(expression: model => model.phoneNumber, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Phone Number" })
+                                        @Html.ValidationMessageFor(expression: model => model.phoneNumber, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
+                                        @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.PasswordFor(expression: model => model.confirmPassword, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Confirm password" })
+                                        @Html.ValidationMessageFor(expression: model => model.confirmPassword, null, htmlAttributes: new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
                             <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
-                            <input class="btn login" type="submit" value="Submit" />
+                            <input class="btn login" type="submit" id ="register"value="Submit" />
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </header>
     <div>
         <main role="main" class="pb-3">
@@ -82,22 +170,23 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - MovieTicketReservation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
+            <div class="container">
+                &copy; 2021 - MovieTicketReservation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <script>
-        $('#signupButton').click(function () {
+    <script>$('#signupButton').click(function () {
             $('#login').modal("hide");
         })
         $('#LoginButton').click(function () {
             $('#SignUp').modal("hide");
-        })
-    </script>
+        })</script>
 </body>
 </html>
