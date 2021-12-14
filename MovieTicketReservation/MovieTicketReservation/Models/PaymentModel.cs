@@ -11,7 +11,7 @@ namespace MovieTicketReservation.Models
         [Key]
         public int paymentId { get; set; }
         [Required(ErrorMessage = "Select type of Card")]
-        public Type cardType { get; set; }
+        public String cardType { get; set; }
         [Required(ErrorMessage= "Card number is required")]
         public long cardNumber { get; set; }
         [RegularExpression(@"^[a-zA-Z].*[\s\.]*$",ErrorMessage ="Please enter a valid Name")]
