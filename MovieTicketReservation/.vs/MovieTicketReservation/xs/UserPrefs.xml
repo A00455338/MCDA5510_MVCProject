@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{7847FDC6-57D3-4C73-A2CA-F2E435C98E06}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieTicketReservation/Models/ShowModel.cs">
+    <Files>
+      <File FileName="MovieTicketReservation/appsettings.json" Line="3" Column="142" />
+      <File FileName="MovieTicketReservation/Models/ShowModel.cs" Line="16" Column="21" />
+      <File FileName="MovieTicketReservation/Models/TransactionModel.cs" Line="24" Column="1" />
+      <File FileName="MovieTicketReservation/Data/SeedData.cs" />
+      <File FileName="MovieTicketReservation/Startup.cs" />
+      <File FileName="MovieTicketReservation/Views/Home/LoginUser.cshtml" Line="1" Column="1" />
+      <File FileName="MovieTicketReservation/Views/Home/Seats.cshtml" />
+      <File FileName="MovieTicketReservation/Data/MovieDbContext.cs" Line="19" Column="63" />
+      <File FileName="MovieTicketReservation/Views/Home/MainPage.cshtml" />
+      <File FileName="MovieTicketReservation/Views/Home/Layout.cshtml" Line="21" Column="52" />
+      <File FileName="MovieTicketReservation/Views/Home/BookMovie.cshtml" />
+      <File FileName="MovieTicketReservation/Controllers/HomeController.cs" Line="40" Column="53" />
+      <File FileName="MovieTicketReservation/Models/MoviesModel.cs" Line="13" Column="1" />
+      <File FileName="MovieTicketReservation/Program.cs" />
+      <File FileName="MovieTicketReservation/Models/BookingModel.cs" />
+      <File FileName="MovieTicketReservation/Models/AuditoriumModel.cs" />
+      <File FileName="MovieTicketReservation/Models/CustomerModel.cs" Line="1" Column="1" />
+      <File FileName="MovieTicketReservation/Models/PaymentModel.cs" Line="1" Column="1" />
+      <File FileName="MovieTicketReservation/Models/SeatsModel.cs" Line="1" Column="1" />
+      <File FileName="MovieTicketReservation/Models/TheatreModel.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MovieTicketReservation" expanded="True">
+            <Node name="MovieTicketReservation" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ShowModel.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MovieTicketReservation PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

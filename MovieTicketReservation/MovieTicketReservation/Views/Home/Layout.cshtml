@@ -15,15 +15,16 @@
             <li>@Html.ActionLink("Movies", "", "Home")</li>
             <li><a href="#contact">Theatre</a></li>
             <li><a href="#about">About</a></li>
-            @*@if (Model.firstName.ToString() == null)
-                {*@
-            <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
 
-            @*}
-                else
-                {
-                    <li>Weclome @Model.firstName </li>
-                }*@
+            @*if (@Model.firstName.ToString() == "")
+            {*@
+                <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
+
+            @*}*@
+            @*else
+            {
+                <li>Weclome @Model.firstName </li>
+            }*@   
 
             <li style="float:right">
                 <div class="searchBar">
@@ -41,10 +42,11 @@
                     <div class="modal-body">
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Login</h4>
-                        <form>
-                            <input type="text" name="username" class="username form-control" placeholder="Username" required />
-                            <input type="password" name="password" class="password form-control" placeholder="Password" required />
-                            <label style="color:white">Don't have an account? <a id="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
+
+                        <form action="Home/LoginUser" method="post">
+                            <input type="email" name="email" class="email form-control" placeholder="Email" required/>
+                            <input type="password" name="password" class="password form-control" placeholder="Password" required/>
+                            <label style="color:white">Don't have an account? <a id ="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
                         </form>
                     </div>

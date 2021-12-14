@@ -8,7 +8,7 @@ namespace MovieTicketReservation.Models
 {
     public class PaymentModel
     {
-
+        [Key]
         public int paymentId { get; set; }
         [Required(ErrorMessage = "Select type of Card")]
         public Type cardType { get; set; }

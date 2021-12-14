@@ -1,0 +1,42 @@
+﻿body{
+    text-align:center;
+}
+.title{
+    font-size:25px;
+    color:orange;
+    margin-bottom:30px;
+}
+.main {
+    padding: 20px;
+    width: 40%;
+    margin: 60px auto;
+    border: 1px solid lightGrey;
+    box-shadow: -1px -4px 63px -25px rgba(0,0,0,0.30);
+}
+.col-sm-4{
+    text-align:left;
+    margin-left:20px;
+}
+.paySearchInput, .paySearchInput:hover {
+    border: none;
+    border-bottom: 2px solid grey;
+    margin-bottom: 20px;
+    border-radius: 0;
+    margin-left:20px;
+    outline: 0;
+    box-shadow: none;
+    width: 50%;
+    background: transparent;
+}
+.paySearchButton {
+    margin-top:20px;
+    padding: 4px 10px 4px 10px;
+    background-color: transparent;
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+.paySearchButton:hover {
+    background-color: orange;
+    color: white;
+}
