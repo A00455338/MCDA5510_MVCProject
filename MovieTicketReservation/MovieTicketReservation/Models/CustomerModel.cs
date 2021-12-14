@@ -12,7 +12,10 @@ namespace MovieTicketReservation.Models
         public int userId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
+
+        [DataType(DataType.EmailAddress, ErrorMessage ="Please enter a valid Email Address.")]
         public string Email { get; set; }
+
         public string Password { get; set; }
 
     }

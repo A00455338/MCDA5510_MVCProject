@@ -1,4 +1,5 @@
-﻿@{ 
+
+@{ 
     Layout = "Layout.cshtml";
 
 }
@@ -20,6 +21,123 @@
                         Pay Now
                     </button>
                 
+=======
+@model MovieTicketReservation.Models.PaymentModel
+
+@{ 
+    Layout = "Layout.cshtml";
+
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#paynow").click(function () {
+            ValidationForm();
+            matchCardRegex();
+        })
+        
+    });
+    function ValidationForm() {
+        if (!$("#paymentForm").valid()) {
+            return false;
+        }
+    }
+    function matchCardRegex() {
+        var cardType = $("#cardType").val();
+        var input = $("#cardNumber").val();
+        console.log(cardType, input);
+        var mastercard = new RegExp("^5[1-5][0-9]{14}$");
+        var visa = new RegExp("^4[0-9]{15}$");
+        var amex = new RegExp("^3[47][0-9]{13}$");
+        if (cardType == "master") {
+            if (!mastercard.test(input)) {
+                $("#cardType-customerror").removeClass("d-none");
+                $("#cardType-customerror").text("Please enter a valid Mastercard Number");
+            } else {
+                $("#cardType-customerror").addClass("d-none");
+                console.log("MasterCard Number is Perfect");
+            }
+        } else if (cardType == "visa") {
+            if (!visa.test(input)) {
+                $("#cardType-customerror").removeClass("d-none");
+                $("#cardType-customerror").text("Please enter a valid Visa Number");
+            } else {
+                $("#cardType-customerror").addClass("d-none");
+                console.log("Visa Number is Perfect");
+            }
+        } else if (cardType == "amex") {
+            if (!amex.test(input)) {
+                $("#cardType-customerror").removeClass("d-none");
+                $("#cardType-customerror").text("Please enter a valid American Express Number");
+            } else {
+                $("#cardType-customerror").addClass("d-none");
+                console.log("American Express Number is Perfect");
+            }
+        }
+        
+    }
+</script>
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/payment.css" />
+    <link rel="script" href="~/js/site.js" />
+</head>
+<body>
+    
+    <div class="main">
+        <form id="paymentForm">
+            <p class="title">Pay Here!!</p>
+            <div class="row">
+                <label class="col-sm-4">
+                    Select type of Card
+                </label>
+                @Html.DropDownList("cardType", new List<SelectListItem>
+                {
+                   new SelectListItem{ Text="Select card type", Value = ""},
+                   new SelectListItem{ Text="MasterCard", Value = "master" },
+                   new SelectListItem{ Text="Visa", Value = "visa" },
+                   new SelectListItem{ Text="American Express", Value = "amex" }
+                  })
+                @Html.ValidationMessageFor(expression: model => model.cardType, null, htmlAttributes: new { @class = "text-danger" })
+                <span class="text-danger field-validation-error"><span id="cardType-customerror" class="d-none"></span></span>
+            </div>
+            <div class="row">
+                <label class="col-sm-4">
+                    Credit/Debit Number
+                </label>
+                @Html.TextBoxFor(expression: model => model.cardNumber, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
+                @Html.ValidationMessageFor(expression: model => model.cardNumber, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                <label class="col-sm-4">
+                    Credit/Debit Card Holder Name
+                </label>
+                @Html.TextBoxFor(expression: model => model.cardHolderName, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
+                @Html.ValidationMessageFor(expression: model => model.cardHolderName, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                <label class="col-sm-4">
+                    Expiry Date
+                </label>
+                @Html.TextBoxFor(expression: model => model.expiryDate, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
+                @Html.ValidationMessageFor(expression: model => model.expiryDate, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                <label class="col-sm-4">
+                    CVV
+                </label>
+                @Html.PasswordFor(expression: model => model.cvv, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
+                @Html.ValidationMessageFor(expression: model => model.cvv, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <button class="paySearchButton" id="paynow" type="submit">
+                Pay Now
+            </button>
+
+
         </form>
         </div>
 </body>
