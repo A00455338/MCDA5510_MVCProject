@@ -13,7 +13,13 @@ function updateTextArea() {
         //Displaying 
 
         $('#NumberDisplay').val(allSeatsVals.length);
-    $('#seatsDisplay').val(allSeatsVals);
-    $('#totalPrice').val(allSeatsVals.length*15);
+        $('#seatsDisplay').val(allSeatsVals);
+        $('#totalPrice').val(allSeatsVals.length * 15);
+        /*var url = '@Url.Action("selectedSeats/", "Pay")';
+        var data = { Arr: allSeatsVals };
+        $.post(url, data, function (result) {
+            var id = '#postedFor' + postId;
+            $(id).html(result);
+        });*/
     
 }

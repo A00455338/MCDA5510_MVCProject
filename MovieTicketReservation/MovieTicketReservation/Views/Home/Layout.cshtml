@@ -1,4 +1,4 @@
-﻿@model MovieTicketReservation.Models.CustomerModel
+﻿@*@model MovieTicketReservation.Models.CustomerModel*@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,11 +85,11 @@
                         <h4 style="color:white">Login</h4>
 
                         <form action="Home/LoginUser" method="post" id="loginForm">
-                            @Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
+                            @*@Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
                             @Html.ValidationMessageFor(expression: model => model.email, null, htmlAttributes: new { @class = "text-danger" })
 
                             @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
-                            @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })*@
 
                             <label style="color:white">Don't have an account? <a id="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
@@ -106,7 +106,7 @@
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Sign Up!</h4>
                         <form action="Home/SaveUserData" method="post" id="registerForm">
-                            <div class="container">
+                            @*<div class="container">
                                 <div class="row">
                                     <div class="col">
                                         @Html.TextBoxFor(expression: model => model.firstName, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "First Name" })
@@ -154,7 +154,7 @@
                                         @Html.ValidationMessageFor(expression: model => model.confirmPassword, null, htmlAttributes: new { @class = "text-danger" })
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                             <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
                             <input class="btn login" type="submit" id ="register"value="Submit" />
                         </form>

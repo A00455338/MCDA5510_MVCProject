@@ -13,4 +13,8 @@ namespace MovieTicketReservation.Models
         public string theatreName { get; set; }
         public string address { get; set; }
     }
+    public class TheatreList
+    {
+        public List<TheatreModel> theatreList { get; set; }
+    }
 }

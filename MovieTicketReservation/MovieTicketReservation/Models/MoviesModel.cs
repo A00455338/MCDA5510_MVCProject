@@ -14,4 +14,8 @@ namespace MovieTicketReservation.Models
         public string movieGenre { get; set; }
 
     }
+    public class MoviesList
+    {
+        public List<MoviesModel> moviesList { get; set; }
+    }
 }
