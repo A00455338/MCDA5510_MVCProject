@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/BookMovie.css" />
 </head>
 <body>
-    
+
     <div class="container">
         <div>
             <img src="~/Pikachu.jpg" class="movieImage" />
@@ -18,10 +18,11 @@
                 Cineplex
             </div>
             <div class="col-lg-9">
-                <button class="time"  >7:0.5 a.m</button>
-                <button class="time">8:0.5 a.m</button>
-                <button class="time">9:0.5 a.m</button>
-                <button class="time">10:0.5 a.m</button>
+                @*<a href="@Url.Action("selectSeats", "Home")">*@
+                <button class="time" id="Cineplex1" onclick="Test(this)">7:0.5 a.m</button>
+                <button class="time" id="Cineplex2">8:0.5 a.m</button>
+                <button class="time" id="Cineplex3">9:0.5 a.m</button>
+                <button class="time" id="Cineplex4">10:0.5 a.m</button>
             </div>
         </div>
         <hr />
@@ -52,6 +53,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function Test(item) {
+            console.log("hi");
+    var itemId = item.id,
+        var url = '@Url.Action("selectSeats/", "Home")';
+        var data = { Id:itemId };
+          $.post(url, data, function (result) {
+              var id = '#postedFor' + postId;
+              $(id).html(result);
+
+        });
+}
+    </script>
 </body>
+
 </html>
+
 
