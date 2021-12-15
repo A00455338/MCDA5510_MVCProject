@@ -1,7 +1,10 @@
-﻿
+﻿@*@model MovieTicketReservation.Models.CustomerModel*@
+
+@model MovieTicketReservation.Models.MoviesList
 @{
-    Layout = "Layout.cshtml";
+//Layout = "Layout.cshtml";
 }
+
 
 <html>
 <head>
@@ -16,8 +19,14 @@
         <div class="row">
             <div class="col-lg-3">
                 Cineplex
+                @*@Html.DisplayFor(model => model.Count())*@
+                @foreach ( var employee in @Model.moviesList)
+                    {
+                        <p>@employee.movieName</p>
+                    }
             </div>
             <div class="col-lg-9">
+
                 @*<a href="@Url.Action("selectSeats", "Home")">*@
                 <button class="time" id="Cineplex1" onclick="Test(this)">7:0.5 a.m</button>
                 <button class="time" id="Cineplex2">8:0.5 a.m</button>
@@ -56,15 +65,15 @@
     <script>
         function Test(item) {
             console.log("hi");
-    var itemId = item.id,
-        var url = '@Url.Action("selectSeats/", "Home")';
-        var data = { Id:itemId };
-          $.post(url, data, function (result) {
-              var id = '#postedFor' + postId;
-              $(id).html(result);
+            var itemId = item.id;
+            var url = '@Url.Action("selectSeats/", "Home")';
+            var data = { Id:itemId };
+            $.post(url, data, function (result) {
+            var id = '#postedFor' + postId;
+            $(id).html(result);
+            });
+        }
 
-        });
-}
     </script>
 </body>
 

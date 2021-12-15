@@ -24,9 +24,12 @@ namespace MovieTicketReservation.Controllers
             dbContext = context;
         }
         [Route("")]
-        public IActionResult HomePage()
+        public IActionResult Index()
         {
-            return View("MainPage");
+            List<MoviesModel> movies = (from mov in this.dbContext.Movies
+                                        select mov).ToList();
+
+            return View("MainPage",new MoviesList { moviesList = movies });
         }
         [Route("search")]
         public IActionResult Search()
@@ -75,9 +78,21 @@ namespace MovieTicketReservation.Controllers
             
         }
         [Route("bookMovie")]
-        public IActionResult BookMovie()
+        public IActionResult BookMovie(int id)
         {
-            return View();
+            //List<CustomerModel> customers = (from customer in this.dbContext.Customer 
+            //                            select customer).ToList();
+
+            //return View(new CustList { customers = customers });
+            //int i = (int)id;
+            List<MoviesModel> movies = (from mov in this.dbContext.Movies 
+                                        where mov.movieId == id
+                                             select mov).ToList();
+
+            List<TheatreModel> theatre = (from th in this.dbContext.Theatre
+                                        select th).ToList();
+
+            return View(new MoviesList { moviesList = movies });
         }
         [Route("saveUserData")]
         public IActionResult SaveUserData([Bind("firstName,lastName,country,postalcode,phoneNumber,email,password,confirmPassword")] CustomerModel obj)

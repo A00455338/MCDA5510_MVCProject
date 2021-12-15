@@ -37,8 +37,14 @@ namespace MovieTicketReservation.Models
         [Required(ErrorMessage = "Password is required")]
         public string password { get; set; }
 
-        [NotMapped] 
+        [NotMapped]
         [Compare("password", ErrorMessage = "Password doesn't match.")]
         public string confirmPassword { get; set; }
     }
+
+    public class CustList
+        {
+        public List<CustomerModel> customers { get; set; }
+    }
+
 }
