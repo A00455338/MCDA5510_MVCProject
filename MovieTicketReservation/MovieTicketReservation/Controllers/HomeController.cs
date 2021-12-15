@@ -14,6 +14,7 @@ using System.Web;
 
 namespace MovieTicketReservation.Controllers
 {
+    [Route("")]
     public class HomeController : Controller
     {
         private readonly MovieDbContext dbContext;
@@ -27,10 +28,12 @@ namespace MovieTicketReservation.Controllers
         {
             return View("MainPage");
         }
+        [Route("search")]
         public IActionResult Search()
         {
             return View();
         }
+        [Route("loginUser")]
         public IActionResult LoginUser(CustomerModel obj)
         {
             if (ModelState.IsValid) {
@@ -55,7 +58,7 @@ namespace MovieTicketReservation.Controllers
             }
         }
 
-
+        [Route("isValidUser")]
         //function to check if User is valid or not
         public CustomerModel IsValidUser(CustomerModel model)
         {
@@ -71,11 +74,12 @@ namespace MovieTicketReservation.Controllers
                     return user;
             
         }
-    
-            public IActionResult BookMovie()
+        [Route("bookMovie")]
+        public IActionResult BookMovie()
         {
             return View();
         }
+        [Route("saveUserData")]
         public IActionResult SaveUserData([Bind("firstName,lastName,country,postalcode,phoneNumber,email,password,confirmPassword")] CustomerModel obj)
         {
             
