@@ -40,5 +40,6 @@ namespace MovieTicketReservation.Models
         [NotMapped] 
         [Compare("password", ErrorMessage = "Password doesn't match.")]
         public string confirmPassword { get; set; }
+
     }
 }
