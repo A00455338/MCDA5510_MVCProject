@@ -65,8 +65,8 @@
 <body>
     
     <div class="main">
-        <form id="paymentForm">
-            <p class="title">Pay Here!!</p>
+        <form id="paymentForm" action="paysuccess" method="post">
+            <h1 class="primary">Pay Here!!</h1>
             <div class="row">
                 <label class="col-sm-4">
                     Select type of Card
@@ -109,10 +109,15 @@
                 @Html.PasswordFor(expression: model => model.cvv, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
                 @Html.ValidationMessageFor(expression: model => model.cvv, null, htmlAttributes: new { @class = "text-danger" })
             </div>
-            <button class="paySearchButton" id="paynow" type="submit">
+            @*<button class="paySearchButton" id="paynow" type="submit">
                 Pay Now
-            </button>
+            </button>*@
 
+
+            <br /><a href='@Url.Action("paysuccess", "Home")'>
+                <input type="submit" id="paynow"class="btn-lg btn-primary"
+                       value="Pay Now" />
+            </a>
 
         </form>
         </div>
