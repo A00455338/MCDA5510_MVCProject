@@ -25,7 +25,6 @@ namespace MovieTicketReservation.Data
         public DbSet<ShowTimingsModel> ShowTimings { get; set; }
         public DbSet<TheatreModel> Theatre { get; set; }
         public DbSet<TransactionModel> Transaction { get; set; }
-
         public DbSet<UserModel> USR { get; set; }
     }
 }
