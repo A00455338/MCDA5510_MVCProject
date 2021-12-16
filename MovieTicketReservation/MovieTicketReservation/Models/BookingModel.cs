@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,9 +15,13 @@ namespace MovieTicketReservation.Models
         
         public string movieName { get; set; }
         
-        public string timings { get; set; }
+        public TimeSpan timings { get; set; }
         public string seatId { get; set; }
         //public DateTime date { get; set; }
 
+    }
+    public class BookingList
+    {
+        public List<BookingModel> bookingList { get; set; }
     }
 }

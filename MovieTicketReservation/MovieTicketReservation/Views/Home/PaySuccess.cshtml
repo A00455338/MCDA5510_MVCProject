@@ -1,19 +1,19 @@
-﻿@{
+﻿
+@model MovieTicketReservation.Models.BookingList
+@{
     Layout = "Layout.cshtml";
 }
 
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/css/LoginUser.css" />
+    <link rel="stylesheet" href="" />
 </head>
 <body>
     <div class="formDiv">
-        <h3>Your Payment is successfull.</h3>
-        <h3>You will soon recieve a text message and an email of your confirmation.</h3>
-        
+        <h3>Your Payment is successfull. Below are your booking Details</h3>
+        @Model.bookingList.ToArray()[0].movieName
+        @Model.bookingList.ToArray()[0].timings
     </div>
-
-
 </body>
 </html>
