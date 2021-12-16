@@ -7,13 +7,26 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="~/css/payment.css" />
 </head>
 <body>
-    <div class="formDiv">
-        <h3>Your Payment is successfull. Below are your booking Details</h3>
-        @Model.bookingList.ToArray()[0].movieName
-        @Model.bookingList.ToArray()[0].timings
+    <div class="border border-primary formDiv p-3 m-3 text-primary text-left">
+        <div class="row">
+            <div class="col">
+                <b>
+                    <u>
+                        <h1 class="p-3 m-3">Your Payment is successfull. Below are your booking Details</h1>
+                    </u>
+                </b>
+                <br />
+                <br />
+                <h2 class="p-3 m-3"><b>Movie Name : </b>@Model.bookingList.ToArray()[0].movieName</h2>
+                <br />
+                <h2 class="p-3 m-3"><b>Timing : </b>@Model.bookingList.ToArray()[0].timings</h2>
+                <br />
+                <h2 class="p-3 m-3"><b>Seats : </b>@Model.bookingList.ToArray()[0].seatId</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>
