@@ -58,14 +58,28 @@
             <li><a href="#about">About</a></li>
 
             @*if (@Model.firstName.ToString() == "")
-            {*@
+        {*@
             <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
 
             @*}*@
             @*else
+        {
+            <li>Weclome @Model.firstName </li>
+        }*@
+
+            @*@{
+                var prod = ViewBag.CustUser;
+            }
+            @if (prod == null)
             {
-                <li>Weclome @Model.firstName </li>
+                <li style="float:right"><a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a></li>
+            }
+            else
+            {
+                <li style="float:right"><a data-toggle="modal">Welcome @prod.firstName</a></li>
             }*@
+
+            
 
             <li style="float:right">
                 <div class="searchBar">
@@ -84,14 +98,15 @@
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Login</h4>
 
-                        <form action="Home/LoginUser" method="post" id="loginForm">
+                        <form action="loginUser" method="post" id="loginForm">
                             @*@Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
                             @Html.ValidationMessageFor(expression: model => model.email, null, htmlAttributes: new { @class = "text-danger" })
 
                             @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
                             @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })*@
-
-                            <label style="color:white">Don't have an account? <a id="signupButton" href="#" data-target="#SignUp" data-toggle="modal">Sign Up here</a></label><br />
+                            <input type="email" name="email" class="email form-control" placeholder="Email" required />
+                            <input type="password" name="password" class="password form-control" placeholder="Password" required />
+                            <label style="color:white">Don't have an account? <a href="@Url.Action("register", "Home")" >Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />
                         </form>
                     </div>
@@ -99,13 +114,13 @@
             </div>
         </div>
 
-        <div id="SignUp" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+        @*<div id="SignUp" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg
                 <div class="modal-content">
                     <div class="modal-body">
                         <button data-dismiss="modal" class="close">&times;</button>
                         <h4 style="color:white">Sign Up!</h4>
-                        <form action="Home/SaveUserData" method="post" id="registerForm">
+                        <form action="Home/SaveUserData" method="post" id="registerForm">*@
                             @*<div class="container">
                                 <div class="row">
                                     <div class="col">
@@ -155,13 +170,13 @@
                                     </div>
                                 </div>
                             </div>*@
-                            <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
+                            @*<label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
                             <input class="btn login" type="submit" id ="register"value="Submit" />
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </header>
     <div>
         <main role="main" class="pb-3">

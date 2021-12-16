@@ -36,6 +36,11 @@ namespace MovieTicketReservation.Controllers
         {
             return View();
         }
+        [Route("register")]
+        public IActionResult register()
+        {
+            return View("Register");
+        }
         [Route("loginUser")]
         public IActionResult LoginUser(CustomerModel obj)
         {
