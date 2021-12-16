@@ -83,7 +83,7 @@ namespace MovieTicketReservation.Controllers
             
         }
         [Route("bookMovie")]
-        public IActionResult BookMovie(int id)
+        public IActionResult BookMovie(string name)
         {
             //List<CustomerModel> customers = (from customer in this.dbContext.Customer 
             //                            select customer).ToList();
@@ -91,7 +91,7 @@ namespace MovieTicketReservation.Controllers
             //return View(new CustList { customers = customers });
             //int i = (int)id;
             List<MoviesModel> movies = (from mov in this.dbContext.Movies 
-                                        where mov.movieId == id
+                                        where mov.movieName == name
                                              select mov).ToList();
 
             List<TheatreModel> theatre = (from th in this.dbContext.Theatre

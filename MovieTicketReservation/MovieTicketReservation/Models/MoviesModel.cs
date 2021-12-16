@@ -13,6 +13,11 @@ namespace MovieTicketReservation.Models
         public int movieId { get; set; }
         public string movieName { get; set; }
         public string movieGenre { get; set; }
+        public string lang { get; set; }
+        public int year { get; set; }
+        public TimeSpan len { get; set; }
+        public string movieDesc { get; set; }
+        public double ratings { get; set; }
 
         //[ForeignKey("TheatreId")]
         //public TheatreModel theatre { get; set; }

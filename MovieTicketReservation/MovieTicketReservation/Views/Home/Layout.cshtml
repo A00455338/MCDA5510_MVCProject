@@ -104,7 +104,7 @@
 
                             @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
                             @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })*@
-                            <input type="email" name="email" class="email form-control" placeholder="Email" required />
+                            <input type="email" name="email" class="username form-control" placeholder="Email" required />
                             <input type="password" name="password" class="password form-control" placeholder="Password" required />
                             <label style="color:white">Don't have an account? <a href="@Url.Action("register", "Home")" >Sign Up here</a></label><br />
                             <input class="btn login" type="submit" value="Login" />

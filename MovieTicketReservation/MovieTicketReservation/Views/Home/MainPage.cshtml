@@ -10,48 +10,58 @@
 <body>
     <div class="Background">
         <h4>Now Trending !!</h4>
-        @foreach (var employee in @Model.moviesList)
-        {
-            <div class="card" style="width:12rem;">
+        
+            <div class="container">
+                <div class="row">
+                    @foreach (var employee in @Model.moviesList)
+                    {
+                        <div class="col">
+                            <div class="card" style="width:12rem;">
+                                <img src="~/photos/@(employee.movieId + ".jpeg")" class="image-card" />
+                                <div class="card-body">
+                                    <h6>@employee.movieName</h6>
+                                    <a href="@Url.Action("BookMovie", "Home", new { name=employee.movieName})"><button>Book</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
 
-                <img src="~/movie-1.jpg" class="image-card" />
-                <div class="card-body">
-                    <h6>@employee.movieName</h6>
-                    <a href="@Url.Action("BookMovie", "Home", new { id=employee.movieId})"><button>Book</button></a>
+
                 </div>
             </div>
-        @*<div class="card" style="width: 12rem;">
-            <img src="~/movie-4.jpg" class="image-card" />
-            <div class="card-body">
-                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+            
+            @*<div class="card" style="width: 12rem;">
+                <img src="~/movie-4.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
             </div>
-        </div>
-        <div class="card" style="width: 12rem;">
-            <img src="~/movie-4.jpg" class="image-card" />
-            <div class="card-body">
-                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+            <div class="card" style="width: 12rem;">
+                <img src="~/movie-4.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
             </div>
-        </div>
-        <div class="card" style="width: 12rem;">
-            <img src="~/movie-4.jpg" class="image-card" />
-            <div class="card-body">
-                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+            <div class="card" style="width: 12rem;">
+                <img src="~/movie-4.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
             </div>
-        </div>
-        <div class="card" style="width: 12rem;">
-            <img src="~/movie-1.jpg" class="image-card" />
-            <div class="card-body">
-                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+            <div class="card" style="width: 12rem;">
+                <img src="~/movie-1.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
             </div>
-        </div>
-        <div class="card" style="width: 12rem;">
-            <img src="~/movie-1.jpg" class="image-card" />
-            <div class="card-body">
-                <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
-            </div>
-        </div>*@
+            <div class="card" style="width: 12rem;">
+                <img src="~/movie-1.jpg" class="image-card" />
+                <div class="card-body">
+                    <a href="@Url.Action("BookMovie", "Home")"><button>book</button></a>
+                </div>
+            </div>*@
 
-        }
+        
 
     </div>
 </body>
