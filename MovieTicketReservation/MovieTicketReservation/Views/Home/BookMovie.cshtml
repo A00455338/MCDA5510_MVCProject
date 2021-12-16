@@ -15,53 +15,58 @@
     <div class="container">
         <div>
             <img src="~/Pikachu.jpg" class="movieImage" />
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                Cineplex
-                @*@Html.DisplayFor(model => model.Count())*@
-                @foreach ( var employee in @Model.moviesList)
-                    {
-                        <p>@employee.movieName</p>
-                    }
+            <div class="section">
+                @foreach (var employee in @Model.moviesList)
+                { 
+                    <h2>@employee.movieName</h2>
+                <h6>Genre : @employee.movieGenre</h6>
+                }
             </div>
-            <div class="col-lg-9">
+        </div>
+        @foreach (var employee in @Model.moviesList)
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    @*@Html.DisplayFor(model => model.Count())*@
 
-                @*<a href="@Url.Action("selectSeats", "Home")">*@
-                <button class="time" id="Cineplex1" onclick="Test(this)">7:0.5 a.m</button>
-                <button class="time" id="Cineplex2">8:0.5 a.m</button>
-                <button class="time" id="Cineplex3">9:0.5 a.m</button>
-                <button class="time" id="Cineplex4">10:0.5 a.m</button>
+                    <p>@employee.theatreModel.theatreName</p>
+                    
+                </div>
+                <div class="col-lg-9">
+
+                    <a href="@Url.Action("selectSeats", "Home",new { id=@employee.theatreModel.showtimingsModel.showId } )">
+                    <button class="time" id="Cineplex1" onclick="Test(this)">@employee.theatreModel.showtimingsModel.timings</button></a>
+                </div>
+            </div>
+        }
+            <hr />
+            <div class="row">
+                <div class="col-lg-3">
+                    Cineplex
+                </div>
+                <div class="col-lg-9">
+                    <button class="time">:0.5 a.m</button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-lg-3">
+                    Cineplex
+                </div>
+                <div class="col-lg-9">
+                    <button class="time">7:0.5 a.m</button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-lg-3">
+                    Cineplex
+                </div>
+                <div class="col-lg-9">
+                    <button class="time">7:0.5 a.m</button>
+                </div>
             </div>
         </div>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3">
-                Cineplex
-            </div>
-            <div class="col-lg-9">
-                <button class="time">:0.5 a.m</button>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3">
-                Cineplex
-            </div>
-            <div class="col-lg-9">
-                <button class="time">7:0.5 a.m</button>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3">
-                Cineplex
-            </div>
-            <div class="col-lg-9">
-                <button class="time">7:0.5 a.m</button>
-            </div>
-        </div>
-    </div>
     <script>
         function Test(item) {
             console.log("hi");

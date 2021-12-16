@@ -92,6 +92,9 @@ namespace MovieTicketReservation.Controllers
             List<TheatreModel> theatre = (from th in this.dbContext.Theatre
                                         select th).ToList();
 
+            List<ShowTimingsModel> time = (from tt in this.dbContext.ShowTimings
+                                          select tt).ToList();
+
             return View(new MoviesList { moviesList = movies });
         }
         [Route("saveUserData")]
@@ -106,13 +109,15 @@ namespace MovieTicketReservation.Controllers
             return View("MainPage",obj);
         }
         [Route("selectSeats")]
-        public IActionResult selectSeats()
+        public IActionResult selectSeats(int time)
         {
             return View("Seats");
         }
-        [Route("Pay")]
-        public IActionResult Pay()
+        [Route("pay")]
+        [HttpPost("Pay")]
+        public IActionResult Pay(string data)
         {
+            Console.WriteLine(data);
             return View("Payment");
         }
     }
