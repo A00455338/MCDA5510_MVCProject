@@ -3,6 +3,10 @@
 @{
     Layout = "Layout.cshtml";
 }
+@{
+    ViewBag.Title = "HR_COE_Without using raw";
+}
+
 
 
 <html>
@@ -11,6 +15,12 @@
 </head>
 <body>
     <div class="formDiv bg-secondary" id="SignUp">
+         @if( TempData["testmsg"] != null)
+   {
+<script type="text/javascript">
+       alert("@TempData["testmsg"]");
+</script>
+   }
         <form action="SaveUserData" method="post" id="registerForm">
             <div class="container">
                 <div class="row">
@@ -63,7 +73,7 @@
             </div>
             <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
             <a href='@Url.Action("MainPage", "Home")'>
-               <input class="btn login" type="submit" id="register" value="Submit" />
+                <input class="btn login" type="submit" id="register" value="Submit" />
             </a>
         </form>
 
