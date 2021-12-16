@@ -14,59 +14,75 @@
 
     <div class="container">
         <div>
-            <img src="~/Pikachu.jpg" class="movieImage" />
+            @*@Model.moviesList.ToArray().
+            @foreach (var employee in @Model.moviesList)
+                {*@
+            <img src="~/photos/@(Model.moviesList.ToArray()[0].movieId + ".jpeg")" class="movieImage" />
             <div class="section">
-                @foreach (var employee in @Model.moviesList)
-                { 
-                    <h2>@employee.movieName</h2>
-                <h6>Genre : @employee.movieGenre</h6>
-                }
+
+                <h2>@Model.moviesList.ToArray()[0].movieName</h2>
+                <h6>Genre : @Model.moviesList.ToArray()[0].movieGenre</h6>
+                <h6>Language : @Model.moviesList.ToArray()[0].lang</h6>
+                <h6>Year : @Model.moviesList.ToArray()[0].year</h6>
+                <h6>Length : @Model.moviesList.ToArray()[0].len</h6>
+                <h6>Description : @Model.moviesList.ToArray()[0].movieDesc</h6>
+                <h6>Ratings : @Model.moviesList.ToArray()[0].ratings / 5</h6>
+
             </div>
+
+            @*}*@
+
         </div>
         @foreach (var employee in @Model.moviesList)
         {
+
+            
             <div class="row">
                 <div class="col-lg-3">
                     @*@Html.DisplayFor(model => model.Count())*@
 
-                    <p>@employee.theatreModel.theatreName</p>
-                    
+                    <p>@employee.theatreModel.theatreDate.ToString("dd/MM/yyyy")</p>
+
                 </div>
                 <div class="col-lg-9">
 
                     <a href="@Url.Action("selectSeats", "Home",new { id=@employee.theatreModel.showtimingsModel.showId } )">
-                    <button class="time" id="Cineplex1" onclick="Test(this)">@employee.theatreModel.showtimingsModel.timings</button></a>
+                        <button class="time" id="Cineplex1" onclick="Test(this)">@employee.theatreModel.showtimingsModel.timings</button>
+                    </a>
                 </div>
+
             </div>
+            <hr />
+
         }
-            <hr />
-            <div class="row">
-                <div class="col-lg-3">
-                    Cineplex
-                </div>
-                <div class="col-lg-9">
-                    <button class="time">:0.5 a.m</button>
-                </div>
+
+        @*<div class="row">
+            <div class="col-lg-3">
+                Cineplex
             </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-3">
-                    Cineplex
-                </div>
-                <div class="col-lg-9">
-                    <button class="time">7:0.5 a.m</button>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-3">
-                    Cineplex
-                </div>
-                <div class="col-lg-9">
-                    <button class="time">7:0.5 a.m</button>
-                </div>
+            <div class="col-lg-9">
+                <button class="time">10:05 a.m</button>
             </div>
         </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-3">
+                Cineplex
+            </div>
+            <div class="col-lg-9">
+                <button class="time">12:15 p.m</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-3">
+                Cineplex
+            </div>
+            <div class="col-lg-9">
+                <button class="time">5:0.5 a.m</button>
+            </div>
+        </div>*@
+    </div>
     <script>
         function Test(item) {
             console.log("hi");

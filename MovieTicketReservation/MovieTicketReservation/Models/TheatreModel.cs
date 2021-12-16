@@ -11,7 +11,7 @@ namespace MovieTicketReservation.Models
     {
         [Key]
         public int theatreId { get; set; }
-        public string theatreName { get; set; }
+        public DateTime theatreDate { get; set; }
         public string address { get; set; }
         [ForeignKey("timingsId")]
         public virtual ShowTimingsModel showtimingsModel { get; set; }

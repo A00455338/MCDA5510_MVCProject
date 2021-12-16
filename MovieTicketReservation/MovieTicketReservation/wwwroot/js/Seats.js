@@ -25,24 +25,11 @@ function updateTextArea(target) {
         type: 'POST',
         data: allSeatsVals,
         url: target,
-        success: alert(""),
-      error: alert(error)
+        success: console.log("success"),
+      error: console.error(error)
     });
-        //var url = '@Url.Action("selectedSeats/", "Pay")';
-        //var data = { Arr: allSeatsVals };
-        //$.post(url, data, function (result) {
-        //    var id = '#postedFor' + postId;
-        //    $(id).html(result);
-        //});
+
     var myData = { arr: allSeatsVals}
-    //$.ajax({
-    //    type: 'POST',
-    //    data: myData, // #2
-    //    url: '/Pay',
-    //    contentType: 'application/json', 
-    //    dataType: 'json', 
-    //    success: alert('Youhou'),
-    //    error: alert(error)
-    //});
+
     
 }
