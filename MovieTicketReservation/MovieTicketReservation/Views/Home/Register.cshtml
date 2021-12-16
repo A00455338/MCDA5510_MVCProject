@@ -70,11 +70,26 @@
                         @Html.ValidationMessageFor(expression: model => model.confirmPassword, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
                 </div>
+                <br />
+                <div class="row">
+                    <div class="col p-3">
+                        <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col p-3">
+                        <a href='@Url.Action("MainPage", "Home")'>
+                            <input class="btn login" type="submit" id="register" value="Submit" />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
+            @*<label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
             <a href='@Url.Action("MainPage", "Home")'>
                 <input class="btn login" type="submit" id="register" value="Submit" />
-            </a>
+            </a>*@
         </form>
 
     </div>
