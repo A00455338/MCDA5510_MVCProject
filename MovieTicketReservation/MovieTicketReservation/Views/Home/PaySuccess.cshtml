@@ -1,5 +1,5 @@
 ﻿
-@model MovieTicketReservation.Models.BookingList
+@model MovieTicketReservation.Models.BookingList 
 @{
     Layout = "Layout.cshtml";
 }
@@ -20,11 +20,12 @@
                 </b>
                 <br />
                 <br />
-                <h2 class="p-3 m-3"><b>Movie Name : </b>@Model.bookingList.ToArray()[0].movieName</h2>
+                <h2 class="p-3 m-3"><b>Movie Name : </b>@Model.bookingList.ToArray()[@Model.bookingList.ToArray().Count()-1].movieName</h2>
                 <br />
-                <h2 class="p-3 m-3"><b>Timing : </b>@Model.bookingList.ToArray()[0].timings</h2>
+                <h2 class="p-3 m-3"><b>Timing : </b>@Model.bookingList.ToArray()[@Model.bookingList.ToArray().Count() - 1].timings</h2>
                 <br />
-                <h2 class="p-3 m-3"><b>Seats : </b>@Model.bookingList.ToArray()[0].seatId</h2>
+                <h2 class="p-3 m-3"><b>Seats : </b>@Model.bookingList.ToArray()[@Model.bookingList.ToArray().Count()-1].seatId</h2>
+
             </div>
         </div>
     </div>
