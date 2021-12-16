@@ -78,46 +78,67 @@
                    new SelectListItem{ Text="Visa", Value = "visa" },
                    new SelectListItem{ Text="American Express", Value = "amex" }
                   })
-                @Html.ValidationMessageFor(expression: model => model.cardType, null, htmlAttributes: new { @class = "text-danger" })
-                <span class="text-danger field-validation-error"><span id="cardType-customerror" class="d-none"></span></span>
+
+                
             </div>
             <div class="row">
                 <label class="col-sm-4">
                     Credit/Debit Number
                 </label>
                 @Html.TextBoxFor(expression: model => model.cardNumber, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
-                @Html.ValidationMessageFor(expression: model => model.cardNumber, null, htmlAttributes: new { @class = "text-danger" })
+
             </div>
             <div class="row">
                 <label class="col-sm-4">
                     Credit/Debit Card Holder Name
                 </label>
                 @Html.TextBoxFor(expression: model => model.cardHolderName, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
-                @Html.ValidationMessageFor(expression: model => model.cardHolderName, null, htmlAttributes: new { @class = "text-danger" })
+
             </div>
             <div class="row">
                 <label class="col-sm-4">
                     Expiry Date
                 </label>
                 @Html.TextBoxFor(expression: model => model.expiryDate, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
-                @Html.ValidationMessageFor(expression: model => model.expiryDate, null, htmlAttributes: new { @class = "text-danger" })
+
             </div>
             <div class="row">
                 <label class="col-sm-4">
                     CVV
                 </label>
                 @Html.PasswordFor(expression: model => model.cvv, htmlAttributes: new { @class = "paySearchInput col-sm-6" })
+
+            </div>
+            <div class="row">
+                <span class="text-danger field-validation-error"><span id="cardType-customerror" class="d-none"></span></span>
+            </div>
+            <div class="row">
+
+                @Html.ValidationMessageFor(expression: model => model.cardType, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                @Html.ValidationMessageFor(expression: model => model.cardNumber, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                @Html.ValidationMessageFor(expression: model => model.cardHolderName, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                @Html.ValidationMessageFor(expression: model => model.expiryDate, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="row">
                 @Html.ValidationMessageFor(expression: model => model.cvv, null, htmlAttributes: new { @class = "text-danger" })
             </div>
-            @*<button class="paySearchButton" id="paynow" type="submit">
+
+
+                @*<button class="paySearchButton" id="paynow" type="submit">
                 Pay Now
             </button>*@
 
 
-            <br /><a href='@Url.Action("paysuccess", "Home")'>
-                <input type="submit" id="paynow"class="btn-lg btn-primary"
-                       value="Pay Now" />
-            </a>
+                <br /><a href='@Url.Action("paysuccess", "Home")'>
+                    <input type="submit" id="paynow" class="btn-lg btn-primary"
+                           value="Pay Now" />
+                </a>
 
         </form>
         </div>

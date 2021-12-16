@@ -46,8 +46,8 @@
                 </div>
                 <div class="col-lg-9">
 
-                    <a href="@Url.Action("selectSeats", "Home",new { id=@employee.theatreModel.showtimingsModel.showId } )">
-                        <button class="time" id="Cineplex1" onclick="Test(this)">@employee.theatreModel.showtimingsModel.timings</button>
+                    <a href="@Url.Action("selectSeats", "Home",new { time=@employee.theatreModel.showtimingsModel.timings} )">
+                        <button class="time" id="Cineplex1" >@employee.theatreModel.showtimingsModel.timings</button>
                     </a>
                 </div>
 

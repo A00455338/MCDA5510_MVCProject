@@ -20,6 +20,7 @@ namespace MovieTicketReservation.Controllers
 
         public static string name1;
         public static TimeSpan time1;
+        public static string seats;
         private readonly MovieDbContext dbContext;
 
         public HomeController(MovieDbContext context)
@@ -100,6 +101,8 @@ namespace MovieTicketReservation.Controllers
 
             List<TheatreModel> theatre = (from th in this.dbContext.Theatre
                                         select th).ToList();
+            List<ShowTimingsModel> tim = (from ti in this.dbContext.ShowTimings
+                                          select ti).ToList();
 
             List<ShowTimingsModel> time = (from tt in this.dbContext.ShowTimings
                                           select tt).ToList();
@@ -125,26 +128,33 @@ namespace MovieTicketReservation.Controllers
             return View("MainPage", new MoviesList { moviesList = movies });
         }
         [Route("selectSeats")]
-        public IActionResult selectSeats(TimeSpan time)
+        public ActionResult selectSeats(TimeSpan time)
         {
-            Console.WriteLine("Time: "+time);
+            time1 = time;
+            //string CurrentURL = Request.Url.AbsoluteUri;
+            //Console.WriteLine(CurrentURL);
             return View("Seats");
         }
-        [Route("pay")]
-        [HttpPost("Pay")]
+        [Route("Pay")]
         public IActionResult Pay(string data)
         {
-           
-            //BookingModel bookingModel = new BookingModel();
-            //bookingModel.movieName = name1;
-            //bookingModel.timings = time1;
-            //bookingModel.seatId = data;
-            //dbContext.Booking.Add(bookingModel);
-            //dbContext.SaveChanges();
-
+            if(data!=null)
+            {
+                BookingModel bookingModel = new BookingModel();
+                bookingModel.movieName = name1;
+                bookingModel.timings = time1;
+                bookingModel.seatId = data;
+                dbContext.Booking.Add(bookingModel);
+                dbContext.SaveChanges();
+            }
             return View("Payment");
         }
-
-
+        [Route("paysuccess")]
+        public IActionResult BookingDetails()
+        {
+            List<BookingModel> bmovies = (from book in this.dbContext.Booking
+                                        select book).ToList();
+            return View("PaySuccess",new BookingList { bookingList = bmovies });
+        }
     }
 }
