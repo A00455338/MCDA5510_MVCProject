@@ -23,7 +23,7 @@ namespace MovieTicketReservation.Models
         public string cardHolderName { get; set; }
 
         [NotMapped]
-        [RegularExpression(@"^(0[1-9]|10|11|12)\/20(1[6-9]|2[0-9]|3[0-1])$", ErrorMessage = "Please enter a valid expiry Date between 2016-2031.")]
+        [RegularExpression(@"^(0[1-9]|10|11|12)\/20(1[6-9]|2[0-9]|3[0-1])$", ErrorMessage = "Please enter a valid expiry Date in the format MM/YYYY between 2016-2031. ")]
         [Required(ErrorMessage = "Expiry date is required")]
         public string expiryDate { get; set; }
 
