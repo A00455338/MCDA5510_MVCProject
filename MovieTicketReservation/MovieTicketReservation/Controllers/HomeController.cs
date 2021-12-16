@@ -11,12 +11,15 @@ using MovieTicketReservation.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using System.Web;
-
 namespace MovieTicketReservation.Controllers
 {
+    
     [Route("")]
     public class HomeController : Controller
     {
+
+        public static string name1;
+        public static TimeSpan time1;
         private readonly MovieDbContext dbContext;
 
         public HomeController(MovieDbContext context)
@@ -101,6 +104,7 @@ namespace MovieTicketReservation.Controllers
             List<ShowTimingsModel> time = (from tt in this.dbContext.ShowTimings
                                           select tt).ToList();
 
+            name1 = name;
             return View(new MoviesList { moviesList = movies });
         }
         [Route("saveUserData")]
@@ -121,15 +125,23 @@ namespace MovieTicketReservation.Controllers
             return View("MainPage", new MoviesList { moviesList = movies });
         }
         [Route("selectSeats")]
-        public IActionResult selectSeats(int time)
+        public IActionResult selectSeats(TimeSpan time)
         {
+            Console.WriteLine("Time: "+time);
             return View("Seats");
         }
         [Route("pay")]
         [HttpPost("Pay")]
         public IActionResult Pay(string data)
         {
-            Console.WriteLine(data);
+           
+            //BookingModel bookingModel = new BookingModel();
+            //bookingModel.movieName = name1;
+            //bookingModel.timings = time1;
+            //bookingModel.seatId = data;
+            //dbContext.Booking.Add(bookingModel);
+            //dbContext.SaveChanges();
+
             return View("Payment");
         }
 
