@@ -25,7 +25,7 @@ function updateTextArea(target) {
         type: 'POST',
         data: allSeatsVals,
         url: target,
-        success: console.log("success"),
+        success: alert("click to continue to redirect to payment gateway"),
       error: console.error(error)
     });
 

@@ -11,12 +11,15 @@ using MovieTicketReservation.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using System.Web;
-
 namespace MovieTicketReservation.Controllers
 {
+    
     [Route("")]
     public class HomeController : Controller
     {
+
+        public static string name1;
+        public static TimeSpan time1;
         private readonly MovieDbContext dbContext;
 
         public HomeController(MovieDbContext context)
@@ -42,7 +45,7 @@ namespace MovieTicketReservation.Controllers
             return View("Register");
         }
         [Route("loginUser")]
-        public IActionResult LoginUser(CustomerModel obj)
+        public IActionResult LoginUser(UserModel obj)
         {
             if (ModelState.IsValid) {
                 var isValidUser = IsValidUser(obj);
@@ -50,35 +53,36 @@ namespace MovieTicketReservation.Controllers
                 {
                     //FormsAuthentication.SetAuthCookie(obj.Email, false);
                     Console.WriteLine(obj.email);
-                    return View("LoginUser",obj);
+                    return View("LoginUser");
                 }
                 else
                 {
                     //If the username and password combination is not present in DB then error message is shown.
                     ModelState.AddModelError("Failure", "Wrong Username and password combination !");
-                    return View("MainPage");
+                    TempData["testmsg"] = "You are not registered,Please Register Here!";
+                    return View("Register");
                 }
             }
             else
             {
                 //If model state is not valid, the model with error message is returned to the View.
+
                 return View(obj);
             }
         }
 
         [Route("isValidUser")]
         //function to check if User is valid or not
-        public CustomerModel IsValidUser(CustomerModel model)
+        public UserModel IsValidUser(UserModel model)
         {
            
                 //Retireving the user details from DB based on username and password enetered by user.
-                CustomerModel user = dbContext.Customer.Where(query => query.email.Equals(model.email) && query.password.Equals(model.password)).SingleOrDefault();
+                UserModel user = dbContext.USR.Where(query => query.email.Equals(model.email) && query.password.Equals(model.password)).SingleOrDefault();
             //If user is present, then true is returned.
             if (user == null)
                 return null;
             //If user is not present false is returned.
             else
-                Console.WriteLine(user.firstName);
                     return user;
             
         }
@@ -100,15 +104,20 @@ namespace MovieTicketReservation.Controllers
             List<ShowTimingsModel> time = (from tt in this.dbContext.ShowTimings
                                           select tt).ToList();
 
+            name1 = name;
             return View(new MoviesList { moviesList = movies });
         }
         [Route("saveUserData")]
         public IActionResult SaveUserData([Bind("firstName,lastName,country,postalcode,phoneNumber,email,password,confirmPassword")] CustomerModel obj)
         {
-            
+            UserModel user = new UserModel();
+            user.email = obj.email;
+            user.password = obj.password;
             if (ModelState.IsValid)
             {
                 dbContext.Customer.Add(obj);
+                dbContext.SaveChanges();
+                dbContext.USR.Add(user);
                 dbContext.SaveChanges();
             }
             List<MoviesModel> movies = (from mov in this.dbContext.Movies
@@ -116,15 +125,23 @@ namespace MovieTicketReservation.Controllers
             return View("MainPage", new MoviesList { moviesList = movies });
         }
         [Route("selectSeats")]
-        public IActionResult selectSeats(int time)
+        public IActionResult selectSeats(TimeSpan time)
         {
+            Console.WriteLine("Time: "+time);
             return View("Seats");
         }
         [Route("pay")]
         [HttpPost("Pay")]
         public IActionResult Pay(string data)
         {
-            Console.WriteLine(data);
+           
+            //BookingModel bookingModel = new BookingModel();
+            //bookingModel.movieName = name1;
+            //bookingModel.timings = time1;
+            //bookingModel.seatId = data;
+            //dbContext.Booking.Add(bookingModel);
+            //dbContext.SaveChanges();
+
             return View("Payment");
         }
 
