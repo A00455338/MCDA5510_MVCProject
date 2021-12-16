@@ -5,6 +5,7 @@
 
 <script src="~/js/Seats.js"></script>
 <link rel="stylesheet" href="~/css/Seats.css" />
+@*<link rel="stylesheet" runat="server" href="https://cdn.jsdelivr.net/npm/"fortawesome/fontawesome-free@5.15.1/css/all.min.css" />*@
        <div class="seatStructure">
         <center>
 
@@ -215,7 +216,9 @@
 
             </table>
 
-            <br /><a href="@Url.Action("Pay", "Home")"><button class="btn-lg btn-primary" onclick="updateTextArea()">Confirm Selection</button></a>
+            <br /><a href='@Url.Action("Pay", "Home")' onclick='updateTextArea(this.href);'><input type="button" class="btn-lg btn-primary" 
+                                                                                                   value="Confirm Selection"/></a>
+    @*<a href="@Url.Action("Pay", "Home")" id="submitButton"><button class="btn-lg btn-primary">Submit</button></a>*@
 </center>
     </div>
 
