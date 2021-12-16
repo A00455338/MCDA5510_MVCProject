@@ -25,6 +25,7 @@ function updateTextArea(target) {
         type: 'POST',
         data: allSeatsVals,
         url: target,
+        success: alert(""),
       error: alert(error)
     });
         //var url = '@Url.Action("selectedSeats/", "Pay")';
