@@ -111,7 +111,9 @@ namespace MovieTicketReservation.Controllers
                 dbContext.Customer.Add(obj);
                 dbContext.SaveChanges();
             }
-            return View("MainPage",obj);
+            List<MoviesModel> movies = (from mov in this.dbContext.Movies
+                                        select mov).ToList();
+            return View("MainPage", new MoviesList { moviesList = movies });
         }
         [Route("selectSeats")]
         public IActionResult selectSeats(int time)
@@ -125,5 +127,7 @@ namespace MovieTicketReservation.Controllers
             Console.WriteLine(data);
             return View("Payment");
         }
+
+
     }
 }
