@@ -7,24 +7,24 @@
 
 <html>
 <head>
-    @*<link rel="stylesheet" href="~/css/LoginUser.css" />*@
+    <link rel="stylesheet" href="~/css/Register.css" />
 </head>
 <body>
     <div class="formDiv bg-secondary" id="SignUp">
         <form action="SaveUserData" method="post" id="registerForm">
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.TextBoxFor(expression: model => model.firstName, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "First Name" })
                         @Html.ValidationMessageFor(expression: model => model.firstName, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.TextBoxFor(expression: model => model.lastName, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Last Name" })
                         @Html.ValidationMessageFor(expression: model => model.lastName, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.DropDownList("country", new List<SelectListItem>
                         {
                            new SelectListItem{ Text="Select Country", Value = ""},
@@ -34,37 +34,50 @@
                         <br />
                         @Html.ValidationMessageFor(expression: model => model.country, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.TextBoxFor(expression: model => model.postalcode, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Postal/Zip Code" })
                         @Html.ValidationMessageFor(expression: model => model.postalcode, null, htmlAttributes: new { @class = "text-danger" })
                         <span class="text-danger field-validation-error"><span id="postalcode-customerror" class="d-none"></span></span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.TextBoxFor(expression: model => model.email, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Email Name" })
                         @Html.ValidationMessageFor(expression: model => model.email, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.TextBoxFor(expression: model => model.phoneNumber, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control", placeholder = "Phone Number" })
                         @Html.ValidationMessageFor(expression: model => model.phoneNumber, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.PasswordFor(expression: model => model.password, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Password" })
                         @Html.ValidationMessageFor(expression: model => model.password, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
-                    <div class="col">
+                    <div class="col p-3">
                         @Html.PasswordFor(expression: model => model.confirmPassword, htmlAttributes: new { @class = "paySearchInput col-sm-6 username form-control password", placeholder = "Confirm password" })
                         @Html.ValidationMessageFor(expression: model => model.confirmPassword, null, htmlAttributes: new { @class = "text-danger" })
                     </div>
                 </div>
+                <br />
+                <div class="row">
+                    <div class="col p-3">
+                        <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col p-3">
+                        <a href='@Url.Action("MainPage", "Home")'>
+                            <input class="btn login" type="submit" id="register" value="Submit" />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <label style="color:white">Already have an account? <a id="LoginButton" href="#" data-target="#login" data-toggle="modal">  Login here</a></label><br />
-            <a href='@Url.Action("MainPage", "Home")'>
-               <input class="btn login" type="submit" id="register" value="Submit" />
-            </a>
+            
+            
         </form>
 
     </div>
